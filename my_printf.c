@@ -48,7 +48,7 @@ format++;
 }
 
 va_end(args);
-         return (count);
+return (count);
 }
 
 /**
@@ -59,7 +59,7 @@ va_end(args);
 */
 int _putchar(char c)
 {
-return write(1, &c, 1);
+return (write(1, &c, 1));
 }
 
 /**
