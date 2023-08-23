@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <stdio.h>
+#include <string.h>
 #include "main.h"
 
 /**
@@ -12,6 +13,21 @@ void print_binary(unsigned int n, int *count)
 	if (n > 1)
 		print_binary(n / 2, count);
 	*count += putchar('0' + (n % 2));
+}
+
+/**
+ * print_reversed - Prints a string in reverse
+ * @s: The string to print in reverse
+ * @count: Pointer to count variable to update the count
+ */
+void print_reversed(const char *s, int *count)
+{
+	int len = strlen(s);
+	for (int i = len - 1; i >= 0; i--)
+	{
+		putchar(s[i]);
+		(*count)++;
+	}
 }
 
 /**
@@ -46,6 +62,9 @@ int _printf(const char *format, ...)
 					break;
 				case 'b':
 					print_binary(va_arg(args, unsigned int), &count);
+					break;
+				case 'r':
+					print_reversed(va_arg(args, const char *), &count);
 					break;
 				case '%':
 					putchar('%');
