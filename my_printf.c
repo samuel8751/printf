@@ -52,7 +52,7 @@ int _printf(const char *format, ...)
 					count++;
 					break;
 				default:
-					/* Handle unsupported specifier */
+					
 					break;
 			}
 		}
